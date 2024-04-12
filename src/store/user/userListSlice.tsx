@@ -43,7 +43,7 @@ const UserListSlice: any = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder: any) => {
-        builder.addCase(userListAPI.pending, (state: any, action: any) => {
+        builder.addCase(userListAPI.pending, (state: any, _: any) => {
             state.loading = true;
         });
 

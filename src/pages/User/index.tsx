@@ -12,7 +12,6 @@ const User = () => {
     const dispatch = useDispatch();
     const userResponse = useSelector((state: any) => state?.userList);
     const [page, setPage] = useState(1);
-    const [parPage, setParPage] = useState(5);
     const [searchValue, setSearchValue] = useState({});
 
     const handleClick = (data: string) => {
@@ -70,12 +69,12 @@ const User = () => {
 
     useEffect(() => {
         const params: any = {
-            skip: page, limit: parPage
+            skip: page, limit: 5
         }
         dispatch(userListAPI(params));
     }, [page]);
 
-    const handleChangePagination = (event: React.ChangeEvent<unknown>, value: number) => {
+    const handleChangePagination = (_: any, value: number) => {
         setPage(value);
     }
 
@@ -88,7 +87,7 @@ const User = () => {
         const searchData = Object.entries(searchValue)
         const params: any = {
             skip: page, 
-            limit: parPage,
+            limit: 5,
             key : searchData[0]?.[0],
             value : searchData[0]?.[1],
         }
