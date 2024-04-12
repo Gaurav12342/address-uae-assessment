@@ -11,7 +11,7 @@ const User = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userResponse = useSelector((state: any) => state?.userList);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const [searchValue, setSearchValue] = useState({});
 
     const handleClick = (data: string) => {
@@ -69,7 +69,7 @@ const User = () => {
 
     useEffect(() => {
         const params: any = {
-            skip: page, limit: 5
+            skip: page, limit: 10
         }
         dispatch(userListAPI(params));
     }, [page]);
